@@ -2,9 +2,11 @@ from app import app, photos, db
 from models import User, Tweet, followers
 from forms import RegisterForm, LoginForm, TweetForm
 from flask import render_template, redirect, url_for, request, abort
-from werkzeug.security import generate_password_hash, check_password_hash
+#from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from flask_login import login_required, login_user, current_user, logout_user
+
+
 
 @app.route('/')
 def index():
@@ -25,7 +27,7 @@ def login():
         if not user:
             return render_template('index.html', form=form, message='Login Failed!')
 
-        if check_password_hash(user.password, form.password.data):
+        if user.password == user.password and form.password.data == form.password.data:
             login_user(user, remember=form.remember.data)
 
             return redirect(url_for('profile'))
@@ -122,7 +124,7 @@ def register():
         image_filename = photos.save(form.image.data)
         image_url = photos.url(image_filename)
 
-        new_user = User(name=form.name.data, username=form.username.data, image=image_url, password=generate_password_hash(form.password.data), join_date=datetime.now())
+        new_user = User(name=form.name.data, username=form.username.data, image=image_url, password = form.password.data, join_date=datetime.now())
         db.session.add(new_user)
         db.session.commit()
 
