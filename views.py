@@ -2,7 +2,6 @@ from app import app, photos, db
 from models import User, Tweet, followers
 from forms import RegisterForm, LoginForm, TweetForm
 from flask import render_template, redirect, url_for, request, abort
-#from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from flask_login import login_required, login_user, current_user, logout_user
 
