@@ -16,7 +16,8 @@
 						</div>
 						<ul class="list-group">
 							<li class="list-group-item">
-								<i class="glyphicon glyphicon-user"></i> NAME: 
+								<i class="glyphicon glyphicon-user"></i> NAME:
+								<!-- current user -->
 								<strong class="pull-right">{{ current_user.name }}</strong>
 							</li>
 							<li class="list-group-item">
@@ -31,8 +32,10 @@
 								<i class="glyphicon glyphicon-th-list"></i> FOLLOWERS COUNT: 
 								<strong class="pull-right">{{ followed_by|length }}</strong>
 							</li>
+							<!-- follow -->
 							{% if display_follow %}
 							<li class="list-group-item">
+								<!-- follow up link -->
 								&nbsp; <strong class="pull-right"><a href="{{ url_for('follow', username=current_user.username) }}">FOLLOW</a></strong>
 							</li>
 							{% endif %}
@@ -67,7 +70,8 @@
 													</div>
 													<div class="col-lg-10">
 														<div>
-															<strong class="mid">{{ tweet.user.name }}</strong> 
+															<strong class="mid">{{ tweet.user.name }}</strong>
+															<!-- to add up the follow link of the user -->
 															<small><em><a href="{{ url_for('profile', username=tweet.user.username) }}">@{{ tweet.user.username }}</a></em></small>  
 															{{ (current_time - tweet.date_created)|time_since }}
 														</div>
@@ -91,6 +95,7 @@
 													</div>
 													<div class="col-lg-10">
 														<div>
+															<!-- activity in followers -->
 															<strong class="mid">{{ follower.name }}</strong> 
 															<small><em><a href="{{ url_for('profile', username=follower.username) }}">@{{ follower.username }}</a></em></small>
 														</div>
@@ -98,7 +103,7 @@
 															<hr />
 															<div class="col-lg-12">
 																<i class="glyphicon glyphicon-th-list"></i> {{ follower.followed_by.all()|length }}
-																&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
 															</div>
 														</div>
 													</div>
@@ -123,6 +128,7 @@
 								<li class="list-group-item">
 									{{ user.name }}
 									<div>
+										<!-- more will take to the user timeline -->
 										<strong><a href="{{ url_for('profile', username=user.username) }}">@{{ user.username }}</a></strong> 
 										<span class="pull-right">
 											{{ user.followed_by.all()|length }} Followers

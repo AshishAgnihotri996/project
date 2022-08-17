@@ -1,21 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-            <h1>Welcome to Engage!</h1>
+            <h1>Welcome to Let's Connect!</h1>
 			<div class="modal fade" id="login">
 				<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h4 class="modal-title">Log in to Eng@ge!</h4>
+							<h4 class="modal-title">Log in to  Let's Connect!</h4>
 						</div>
 						<div class="modal-body">
 							<div class="row">
 								<div class="col-lg-6 col-lg-offset-3">
 									<div class="text-center">
 										<h3>
-											<a href="./">ENG@GE!</a>
+											<a href="./"> Let's Connect!</a>
 										</h3>
 									</div>
+									<!-- login form -->
 									<form method="POST" action="{{ url_for('login') }}">
 									    {% if message %}
 									    	<span style="color:red;">{{ message }}</span>
