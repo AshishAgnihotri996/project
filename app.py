@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy 
 from flask_migrate import Migrate, MigrateCommand #to migrate the data with command db
-from flask_script import Manager
+#from flask_script import Manager
 from flask_uploads import UploadSet, configure_uploads, IMAGES #uploads not working instead , reuploaded is working
 from flask_login import LoginManager
 
@@ -49,8 +49,8 @@ def time_since(delta):
 from views import *
 
 #command attached with db
-manager = Manager(app)
-manager.add_command('db', MigrateCommand)
+# manager = Manager(app)
+# manager.add_command('db', MigrateCommand)
 
 if __name__ == '__main__':
-    manager.run()
+    app.run()
