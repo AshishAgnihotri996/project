@@ -10,7 +10,7 @@ app = Flask(__name__)
 #instantiate
 photos = UploadSet('photos', IMAGES)
 
-app.config['UPLOADED_PHOTOS_DEST'] = 'images'
+app.config['UPLOADED_PHOTOS_DEST'] = 'tmp'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:/Users/User/Desktop/twitter-clone/engage.db'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/new_clone'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://fzlhtaiwunmeak:e1a639d47e78bd9ea37de5d4f63f7560fe1427312e0214ae90aad701ecb0d1dd@ec2-3-223-242-224.compute-1.amazonaws.com:5432/d24g04jsjb4men'
